@@ -52,5 +52,5 @@ typedef struct {
 
 ---
 
-_good for distributing malware and priated games /s_
+_good for distributing malware and pirated games /s_
 

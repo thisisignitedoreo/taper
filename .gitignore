@@ -1,0 +1,3 @@
+*.tape
+__pycache__/
+*.pyc

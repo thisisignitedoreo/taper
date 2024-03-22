@@ -72,6 +72,9 @@ def parse_files(files, recursively, path="", prefix=None, first_run=True):
     ret = []
     if first_run:
         for k, i in enumerate(files):
+            if not i.startswith("/"):
+                prefixes.append("")
+                continue
             if i.endswith("/"):
                 prefixes.append(i.rsplit("/", 2)[0] + "/")
                 files[k] = i.rsplit("/", 2)[1] + "/"

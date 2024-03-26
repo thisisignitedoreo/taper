@@ -43,8 +43,15 @@ typedef struct {
 	char magic[4]; // = "TAPE"
 	u8 versionMajor;
 	u8 versionMinor;
-	FileStructure files;
+	// 2.0
+    FileStructure files;
 	u64 dataLength;
+    u8 compressionMethod;
+    // compression method:
+    // 0: none (uncompressed)
+    // 1: zlib
+    // 2: lzma (xz)
+    // 3: bzip2
 	char data[dataLength];
 } TapeFile;
 

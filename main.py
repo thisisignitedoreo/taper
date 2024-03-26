@@ -20,7 +20,7 @@ def print_usage(program):
     print( "    tape    (t) - pack files into tape with given compression (recursively if -r specified)")
     print( "      args: [files] [-r] [-c=compression]")
     print(f"      compression methods: {', '.join(comp_methods)}")
-    print( "    extract (x) - unpack files from tape to dst (cwd if unspecified)")
+    print( "    extract (e) - unpack files from tape to dst (cwd if unspecified)")
     print( "      args: [dst]")
     print( "    list    (l) - list files in tape")
     print( "      args: none")

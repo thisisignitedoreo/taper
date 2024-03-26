@@ -1,6 +1,6 @@
 
 # taper
-very simple file archiver
+dead simple file archiver
 
 ## overview
 to create an archive (a tape):
@@ -25,34 +25,34 @@ for further information run program without any arguments
 ```c
 
 typedef struct {
-	u8 isDir;
-	u32 nameLength;
-	char name[nameLength];
-	// if !isDir
-	u64 dataPtr;
-	u64 size;
-	// endif
+    u8 isDir;
+    u32 nameLength;
+    char name[nameLength];
+    // if !isDir
+    u64 dataPtr;
+    u64 size;
+    // endif
 } File;
 
 typedef struct {
-	u32 files;
-	File data[files];
+    u32 files;
+    File data[files];
 } FileStructure;
 
 typedef struct {
-	char magic[4]; // = "TAPE"
-	u8 versionMajor;
-	u8 versionMinor;
-	// 2.0
+    char magic[4]; // = "TAPE"
+    u8 versionMajor;
+    u8 versionMinor;
+    // 2.0
     FileStructure files;
-	u64 dataLength;
+    u64 dataLength;
     u8 compressionMethod;
     // compression method:
     // 0: none (uncompressed)
     // 1: zlib
     // 2: lzma (xz)
     // 3: bzip2
-	char data[dataLength];
+    char data[dataLength];
 } TapeFile;
 
 ```

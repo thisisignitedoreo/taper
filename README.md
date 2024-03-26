@@ -1,24 +1,12 @@
 
 # taper
-dead simple file archiver
+dead simple file archiver made just out of curiosity
 
 ## overview
-to create an archive (a tape):
+to get detailed help:
 ```console
-$ python main.py t file.tape file1 file2 dir1 -r
+$ python main.py
 ```
-
-to list archive contents:
-```console
-$ python main.py l file.tape
-```
-
-to extract a tape:
-```console
-$ python main.py e file.tape some_directory
-```
-
-for further information run program without any arguments
 
 ## file format
 .tape file is binary file with following structure:

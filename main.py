@@ -10,14 +10,15 @@ def error(string):
     sys.exit(1)
 
 comp_methods = ["none", "zlib", "lzma", "bz2"]
-def_comp = 2
+def_comp = 1
 
 arr_to_indices = lambda a: {i: k for k, i in zip(range(len(a)), a)}
 
 def print_usage(program):
     print(f"usage: {program} <operation> <file> [args]")
     print( "  operations:")
-    print( "    tape    (t) - pack files into tape with given compression (recursively if -r specified)")
+    print( "    tape    (t) - pack files into tape with given compression")
+    print( "                  (recursively if -r specified) (def compression is {comp_methods[def_comp]})")
     print( "      args: [files] [-r] [-c=compression]")
     print(f"      compression methods: {', '.join(comp_methods)}")
     print( "    extract (e) - unpack files from tape to dst (cwd if unspecified)")
@@ -41,7 +42,7 @@ def parse_args(args):
 
     if operation in ("tape", "t"):
         files = []
-        compression = 1
+        compression = def_comp
         do_args = True
         recursively = False
         for i in args:

@@ -35,7 +35,7 @@ def parse_args(args):
     operation = args.pop(0)
     
     if len(args) == 0:
-        print_usage()
+        print_usage(program)
         error("tape operation expects output file")
     
     file = args.pop(0)
@@ -91,6 +91,10 @@ def parse_files(files, recursively, path="", prefix=None, first_run=True):
             #if not i.startswith("/"):
             #    prefixes.append("")
             #    continue
+            if "/" not in i:
+                prefixes.append("")
+                continue
+
             if i.endswith("/"):
                 prefixes.append(i.rsplit("/", 2)[0] + "/")
                 files[k] = i.rsplit("/", 2)[1] + "/"

@@ -143,14 +143,14 @@ def encrypt(data, password):
     newdata = bytearray(data)
     hashcount = 0
     for k, i in enumerate(data):
-        newdata[k] = i ^ shahash[hashcount]
         hashcount += 1
         if hashcount >= len(shahash):
             hashcount = 0
+        newdata[k] = i ^ shahash[hashcount]
     return newdata
 
 def decrypt(data, password):
-    return encrypt(data, password) # xor(xor(a,b),b) == a :)
+    return encrypt(data, password) # xor(xor(a, b), b) == a :)
 
 def serialize(files, compression, password):
     file = b"TAPE"
@@ -307,3 +307,4 @@ if __name__ == "__main__":
             print(f"compressing method: {comp_methods[data_compression]} {full_size/(data_length):0.2f}x")
 
 # thats all folks!
+
